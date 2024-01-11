@@ -11,6 +11,11 @@
         <input type="text" class="form-control" placeholder="Nome da Plataforma" name="nome">
         <button class="btn btn-success" type="submit">Adicionar</button>
     </div>
+
+    @error('nome')
+    <div class="alert alert-danger" id="error-message">{{ $message }}</div>
+    @enderror
+    
 </form>
 
 <table class="table table-bordered">

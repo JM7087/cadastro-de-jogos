@@ -37,7 +37,7 @@
     </div>
 
     <!-- Adicione aqui seus scripts JavaScript -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/esconderMesagemErro.js') }}" defer></script>
     <!-- Adicione aqui outros scripts JavaScript -->
 </body>
 </html>

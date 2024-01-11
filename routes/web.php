@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// ======================================== route plataformas ============================================================
+
 // Rota para exibir a lista de plataformas
 Route::get('/plataformas', [PlataformasController::class, 'index'])->name('plataformas.index');
 
@@ -32,3 +34,6 @@ Route::put('/plataformas/atualizar/{id}', [PlataformasController::class, 'update
 
 // Rota para excluir uma plataforma
 Route::delete('/plataformas/excluir/{id}', [PlataformasController::class, 'destroy'])->name('plataformas.destroy');
+
+// ========================================================================================================================
+
