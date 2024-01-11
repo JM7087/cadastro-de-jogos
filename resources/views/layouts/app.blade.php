@@ -6,7 +6,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <!-- Adicione aqui seus links para estilos CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap5.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+
     <!-- Adicione aqui outros estilos CSS -->
 </head>
 <body>
@@ -35,6 +37,14 @@
             </div>
         </main>
     </div>
+
+    <footer class="bg-primary text-white text-center py-3 mt-5">
+        <div align="center" class="credit">
+            <a href="https://grupo.jm7087.com" class="cor-link-rodape">Grupo JM7087</a>
+            © Copyright 2010-<script type="text/javascript">document.write(new Date().getFullYear());</script>
+            . Todos os direitos reservados. Desenvolvido <span class="cor-nome-dev-rodape"> João Marcos</span><span class="texto-rodape">.
+        </div>
+    </footer>
 
     <!-- Adicione aqui seus scripts JavaScript -->
     <script src="{{ asset('js/esconderMesagemErro.js') }}" defer></script>

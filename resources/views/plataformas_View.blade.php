@@ -23,8 +23,8 @@
         <tr class="table-info">
             <th>ID</th>
             <th>Nome</th>
-            <th>Editar</th>
-            <th>Exluir</th>
+            <th class="btn-tabela-th-td">Editar</th>
+            <th class="btn-tabela-th-td">Exluir</th>
             <!-- Adicione outras colunas conforme necessário -->
         </tr>
     </thead>
@@ -33,12 +33,12 @@
         <tr>
             <td>{{ $plataforma->id }}</td>
             <td>{{ $plataforma->nome }}</td>
-            <td>
+            <td class="btn-tabela-th-td">
                 <!-- Botão Editar -->
                 <a href="{{ route('plataformas.edit', ['id' => $plataforma->id]) }}" class="btn btn-primary">Editar</a>
             </td>
 
-            <td>
+            <td class="btn-tabela-th-td">
                 <!-- Botão Excluir -->
                 <form action="{{ route('plataformas.destroy', ['id' => $plataforma->id]) }}" method="POST"
                     style="display: inline-block;">
