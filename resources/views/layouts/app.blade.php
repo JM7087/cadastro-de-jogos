@@ -47,7 +47,7 @@
     </footer>
 
     <!-- Adicione aqui seus scripts JavaScript -->
-    <script src="{{ asset('js/esconderMesagemErro.js') }}" defer></script>
+    <script src="{{ asset('js/esconderMesagem.js') }}" defer></script>
     <!-- Adicione aqui outros scripts JavaScript -->
 </body>
 </html>

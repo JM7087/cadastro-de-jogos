@@ -39,7 +39,7 @@ class PlataformasController extends Controller
         $plataforma->save();
 
         // Redirecionar para a página de listagem de plataformas
-        return redirect('/plataformas');
+        return redirect('/plataformas')->with('success', 'Plataforma Adicionada com sucesso!');
     }
 
     public function edit($id)
@@ -66,6 +66,16 @@ class PlataformasController extends Controller
         $plataforma->save();
 
         // Redirecionar para a página de listagem de plataformas
-        return redirect('/plataformas');
+        return redirect('/plataformas')->with('success', 'Plataforma Alterada com sucesso!');
+    }
+
+    public function destroy($id)
+    {
+        // Encontrar a plataforma pelo ID e excluí-la
+        $plataforma = Plataforma::findOrFail($id);
+        $plataforma->delete();
+
+        // Redirecionar para a página de listagem de plataformas
+        return redirect('/plataformas')->with('success', 'Plataforma excluído com sucesso!');
     }
 }

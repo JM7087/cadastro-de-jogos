@@ -2,7 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () {
-        var errorMessage = document.getElementById('error-message');
+        var errorMessage = document.getElementById('mesagem');
         if (errorMessage) {
             errorMessage.style.display = 'none';
         }
