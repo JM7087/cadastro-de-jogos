@@ -38,7 +38,7 @@
         </main>
     </div>
 
-    <footer class="bg-primary text-white text-center py-3 mt-5">
+    <footer class="bg-primary text-white text-center py-3">
         <div align="center" class="credit">
             <a href="https://grupo.jm7087.com" class="cor-link-rodape">Grupo JM7087</a>
             © Copyright 2010-<script type="text/javascript">document.write(new Date().getFullYear());</script>

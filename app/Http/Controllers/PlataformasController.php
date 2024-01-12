@@ -42,6 +42,17 @@ class PlataformasController extends Controller
         return redirect('/plataformas');
     }
 
+    public function edit($id)
+    {
+        $plataforma = Plataforma::findOrFail($id);
+        // redirecionar para pagina de edição
+
+        $title = 'Editar Plataforma';
+
+        return view('editar', ['plataforma' => $plataforma, 'title' => $title]);
+    }
+
+
     public function update(Request $request, $id)
     {
         // Validação dos dados do formulário

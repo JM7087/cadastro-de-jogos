@@ -15,3 +15,17 @@
     width: 10%;
     text-align: center;
 }
+
+main {
+    flex-grow: 1;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}

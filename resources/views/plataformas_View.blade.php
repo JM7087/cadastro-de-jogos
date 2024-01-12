@@ -12,6 +12,7 @@
         <button class="btn btn-success" type="submit">Adicionar</button>
     </div>
 
+    <!-- notificação de erro -->
     @error('nome')
     <div class="alert alert-danger" id="error-message">{{ $message }}</div>
     @enderror
@@ -21,7 +22,6 @@
 <table class="table table-bordered">
     <thead>
         <tr class="table-info">
-            <th>ID</th>
             <th>Nome</th>
             <th class="btn-tabela-th-td">Editar</th>
             <th class="btn-tabela-th-td">Exluir</th>
@@ -31,7 +31,6 @@
     <tbody>
         @foreach($plataformas as $plataforma)
         <tr>
-            <td>{{ $plataforma->id }}</td>
             <td>{{ $plataforma->nome }}</td>
             <td class="btn-tabela-th-td">
                 <!-- Botão Editar -->
