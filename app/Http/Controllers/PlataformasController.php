@@ -49,7 +49,7 @@ class PlataformasController extends Controller
 
         $title = 'Editar Plataforma';
 
-        return view('editar', ['plataforma' => $plataforma, 'title' => $title]);
+        return view('paginasDeConfirmasao.editarPlataforma_view', ['plataforma' => $plataforma, 'title' => $title]);
     }
 
 
@@ -67,6 +67,18 @@ class PlataformasController extends Controller
 
         // Redirecionar para a página de listagem de plataformas
         return redirect('/plataformas')->with('success', 'Plataforma Alterada com sucesso!');
+    }
+
+    public function confirmarExclusao($id) {
+        $plataforma = Plataforma::findOrFail($id);
+        // redirecionar para pagina de exlusão
+
+        $title = 'Excluir Plataforma';
+
+        $mensagemDeConfimasao = "Tem certeza que deseja excluir esta Plataforma ( $plataforma->nome )";
+
+        return view('paginasDeConfirmasao.confirmarExclusaoPlataforma_view', ['plataforma' => $plataforma, 'title' => $title, 'mensagemDeConfimasao' => $mensagemDeConfimasao]);
+    
     }
 
     public function destroy($id)

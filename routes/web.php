@@ -32,6 +32,9 @@ Route::get('/plataformas/editar/{id}', [PlataformasController::class, 'edit'])->
 // Rota para atualizar os dados da plataforma após edição
 Route::put('/plataformas/atualizar/{id}', [PlataformasController::class, 'update'])->name('plataformas.update');
 
+// Rota para exibir o pagina de confirmar exclusao de plataforma
+Route::get('/plataformas/confirmarExclusao/{id}', [PlataformasController::class, 'confirmarExclusao'])->name('plataformas.confirmarExclusao');
+
 // Rota para excluir uma plataforma
 Route::delete('/plataformas/excluir/{id}', [PlataformasController::class, 'destroy'])->name('plataformas.destroy');
 

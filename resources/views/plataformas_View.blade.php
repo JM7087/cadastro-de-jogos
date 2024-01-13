@@ -19,11 +19,11 @@
 
     <!-- notificação de sucesso -->
     @if(session('success'))
-            <div class="alert alert-success mt-3" id="mesagem">
-                {{ session('success') }}
-            </div>
-        @endif
-    
+    <div class="alert alert-success mt-3" id="mesagem">
+        {{ session('success') }}
+    </div>
+    @endif
+
 </form>
 
 <table class="table table-bordered">
@@ -41,17 +41,14 @@
             <td>{{ $plataforma->nome }}</td>
             <td class="btn-tabela-th-td">
                 <!-- Botão Editar -->
-                <a href="{{ route('plataformas.edit', ['id' => $plataforma->id]) }}" class="btn btn-primary">Editar</a>
+                <a href="{{ route('plataformas.edit', ['id' => $plataforma->id]) }}"
+                    class="btn btn-primary">Editar</a>
             </td>
 
             <td class="btn-tabela-th-td">
                 <!-- Botão Excluir -->
-                <form action="{{ route('plataformas.destroy', ['id' => $plataforma->id]) }}" method="POST"
-                    style="display: inline-block;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Excluir</button>
-                </form>
+                <a href="{{ route('plataformas.confirmarExclusao', ['id' => $plataforma->id]) }}"
+                    class="btn btn-danger">Excluir</a>
             </td>
             <!-- Adicione outras colunas conforme necessário -->
         </tr>
