@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,24 +12,31 @@
 
     <!-- Adicione aqui outros estilos CSS -->
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
                 <div class="navbar-brand"> Cadastro de Jogos - @yield('title')</div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/') }}">Início</a>
-                            
-                            <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/plataformas') }}">Plataformas</a>
-                            </li>
-                            
-                            <!-- Adicione aqui seus links de navegação -->
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/jogos') }}">Editar Jogos</a>
+                        </li>
+
+                        <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/plataformas') }}">Editar Plataformas</a>
+                        </li>
+
+                        <!-- Adicione aqui seus links de navegação -->
                         </li>
                     </ul>
                 </div>
@@ -45,8 +53,11 @@
     <footer class="bg-primary text-white text-center py-3">
         <div align="center" class="credit">
             <a href="https://grupo.jm7087.com" class="cor-link-rodape">Grupo JM7087</a>
-            © Copyright 2010-<script type="text/javascript">document.write(new Date().getFullYear());</script>
-            . Todos os direitos reservados. Desenvolvido <span class="cor-nome-dev-rodape"> João Marcos</span><span class="texto-rodape">.
+            © Copyright 2010-<script type="text/javascript">
+                document.write(new Date().getFullYear());
+            </script>
+            . Todos os direitos reservados. Desenvolvido <span class="cor-nome-dev-rodape"> João Marcos</span><span
+                class="texto-rodape">.
         </div>
     </footer>
 
@@ -54,4 +65,5 @@
     <script src="{{ asset('js/esconderMesagem.js') }}" defer></script>
     <!-- Adicione aqui outros scripts JavaScript -->
 </body>
+
 </html>

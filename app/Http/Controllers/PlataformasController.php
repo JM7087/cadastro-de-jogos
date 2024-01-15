@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ValidacaoInputController;
+use App\Models\JogoPlataforma;
 use App\Models\Plataforma;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -69,22 +70,44 @@ class PlataformasController extends Controller
         return redirect('/plataformas')->with('success', 'Plataforma Alterada com sucesso!');
     }
 
-    public function confirmarExclusao($id) {
+    public function confirmarExclusao($id)
+    {
         $plataforma = Plataforma::findOrFail($id);
         // redirecionar para pagina de exlusão
 
         $title = 'Excluir Plataforma';
 
+        // verificar relacionamento plataforma jogos
+        $jogoPlataforma = JogoPlataforma::where('plataforma_id', $id)->exists();
+
+        $disabled = false;
+
+        if ($jogoPlataforma) {
+
+            $disabled = true;
+
+            $mensagemDeConfimasao = "A plataforma ( $plataforma->nome ) está ligado a um ou mais jogos. Você não pode deletá-lo.";
+
+            return view('paginasDeConfirmasao.confirmarExclusaoPlataforma_view', 
+                       ['plataforma' => $plataforma, 'title' => $title, 'mensagemDeConfimasao' => $mensagemDeConfimasao, 'disabled' => $disabled]);
+        }
+
         $mensagemDeConfimasao = "Tem certeza que deseja excluir esta Plataforma ( $plataforma->nome )";
 
-        return view('paginasDeConfirmasao.confirmarExclusaoPlataforma_view', ['plataforma' => $plataforma, 'title' => $title, 'mensagemDeConfimasao' => $mensagemDeConfimasao]);
-    
+        return view('paginasDeConfirmasao.confirmarExclusaoPlataforma_view',
+                   ['plataforma' => $plataforma, 'title' => $title, 'mensagemDeConfimasao' => $mensagemDeConfimasao, 'disabled' => $disabled]);
     }
 
     public function destroy($id)
     {
         // Encontrar a plataforma pelo ID e excluí-la
         $plataforma = Plataforma::findOrFail($id);
+
+         // verificar relacionamento plataforma jogos
+         $jogoPlataforma = JogoPlataforma::where('plataforma_id', $id)->exists();
+ 
+         if ($jogoPlataforma) return redirect()->back()->with('warning', "A plataforma ( $plataforma->nome ) está ligado a um ou mais jogos. Você não pode deletá-lo.");
+
         $plataforma->delete();
 
         // Redirecionar para a página de listagem de plataformas

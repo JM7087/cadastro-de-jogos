@@ -18,7 +18,11 @@
 
         <center class="py-4">
 
-        <button type="submit" class="btn btn-success">Confirmar</button>
+            @if($disabled)
+            <button type="submit" class="btn btn-secondary" disabled >Confirmar</button>
+            @else
+            <button type="submit" class="btn btn-success">Confirmar</button>
+            @endif
 
         <a href="{{ route('plataformas.index') }}" class="btn btn-danger">Cancelar</a>
 

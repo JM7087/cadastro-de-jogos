@@ -23,7 +23,7 @@ class JogosController extends Controller
         $jogos = DB::table('jogo_plataforma')
             ->join('jogos', 'jogo_plataforma.jogo_id', '=', 'jogos.id')
             ->join('plataformas', 'jogo_plataforma.plataforma_id', '=', 'plataformas.id')
-            ->select('jogos.nome as nome_jogo', 'jogos.jogo_finalizado', 'plataformas.nome as nome_plataforma')
+            ->select('jogos.id as jogos_id', 'plataformas.id as plataformas_id', 'jogos.nome as nome_jogo', 'jogos.jogo_finalizado', 'plataformas.nome as nome_plataforma')
             ->get();
 
 

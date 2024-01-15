@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlataformasController;
+use App\Http\Controllers\JogosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,28 @@ use App\Http\Controllers\PlataformasController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// ======================================== route jogos ============================================================
+
+// Rota para exibir a lista de jogos
+Route::get('/jogos', [JogosController::class, 'index'])->name('jogos.index');
+
+// Rota para armazenar um novo jogo
+Route::post('/jogos/armazenar', [JogosController::class, 'store'])->name('jogos.store');
+
+// Rota para exibir o formulário de edição de jogo
+Route::get('/jogos/editar/{id}', [JogosController::class, 'edit'])->name('jogos.edit');
+
+// Rota para atualizar os dados do jogo após edição
+Route::put('/jogos/atualizar/{id}', [JogosController::class, 'update'])->name('jogos.update');
+
+// Rota para exibir a página de confirmação de exclusão de jogo
+Route::get('/jogos/confirmarExclusao/{id}', [JogosController::class, 'confirmarExclusao'])->name('jogos.confirmarExclusao');
+
+// Rota para excluir um jogo
+Route::delete('/jogos/excluir/{id}', [JogosController::class, 'destroy'])->name('jogos.destroy');
+
+
 
 // ======================================== route plataformas ============================================================
 
@@ -37,6 +60,3 @@ Route::get('/plataformas/confirmarExclusao/{id}', [PlataformasController::class,
 
 // Rota para excluir uma plataforma
 Route::delete('/plataformas/excluir/{id}', [PlataformasController::class, 'destroy'])->name('plataformas.destroy');
-
-// ========================================================================================================================
-
