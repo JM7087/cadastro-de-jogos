@@ -6,6 +6,7 @@ use App\Models\Jogo;
 use App\Models\Plataforma;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class JogosController extends Controller
 {
@@ -18,38 +19,46 @@ class JogosController extends Controller
 
     public function index()
     {
-        $plataformas = Plataforma::all();
+        $plataformas = Plataforma::orderBy('nome')->get();
 
         $jogos = DB::table('jogo_plataforma')
             ->join('jogos', 'jogo_plataforma.jogo_id', '=', 'jogos.id')
             ->join('plataformas', 'jogo_plataforma.plataforma_id', '=', 'plataformas.id')
-            ->select('jogos.id as jogos_id', 'plataformas.id as plataformas_id', 'jogos.nome as nome_jogo', 'jogos.jogo_finalizado', 'plataformas.nome as nome_plataforma')
-            ->get();
+            ->select(
+                'jogos.id as jogos_id',
+                'plataformas.id as plataformas_id',
+                'jogos.nome as nome_jogo',
 
+                // ou adiciona na view <td>{{ $jogo->jogo_finalizado == 1 ? 'Sim' : 'Não' }}</td>
+                DB::raw("CASE WHEN jogos.jogo_finalizado = 1 THEN 'Sim' ELSE 'Não' END AS jogo_finalizado"),
+                'plataformas.nome as nome_plataforma'
+            )
+            ->get();
 
         return view('jogos_View', ['jogos' => $jogos, 'plataformas' => $plataformas]);
     }
 
     public function store(Request $request)
     {
+
         $this->validacaoInputController->validateFormData($request);
 
-        // Crie um novo jogo
+        // Criação de um novo jogo
         $jogo = new Jogo();
         $jogo->nome = $request->input('nome');
-        $jogo->jogo_finalizado = $request->input('jogo_finalizado');
-        // Outros campos
+        $jogo->jogo_finalizado = $request->has('jogo_finalizado') ? true : false;
+        // Outros campos a serem atualizados
 
-        // Salve o jogo para obter o ID
         $jogo->save();
 
-        // Associe o jogo à plataforma selecionada
-        $plataformaId = $request->input('plataforma');
-        $plataforma = Plataforma::findOrFail($plataformaId);
-        $jogo->plataformas()->attach($plataforma);
+        // Adicionando o jogo à tabela jogo_plataforma
+        DB::table('jogo_plataforma')->insert([
+            'jogo_id' => $jogo->id,
+            'plataforma_id' => $request->input('plataforma_id'),
+        ]);
 
         // Redirecionar para a página de listagem de jogos
-        return redirect('/jogos');
+        return redirect('/jogos')->with('success', 'Jogo adicionado com sucesso!');
     }
 
 

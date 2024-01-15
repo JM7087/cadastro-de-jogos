@@ -6,14 +6,22 @@
 
 <form action="{{ route('jogos.store') }}" method="POST">
     @csrf
+   
     <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Nome do Jogo" name="nome">
-        
+
+        <!-- Adicionando o checkbox -->
+        <div class="mx-2 py-1">
+            <label class="form-check-label" for="jogo_finalizado">Finalizado</label>
+            <input class="form-check-input" type="checkbox" name="jogo_finalizado" id="jogo_finalizado">
+        </div>
+                
+
         <!-- Adicionando o campo de seleção para as plataformas -->
         <select class="form-select" name="plataforma_id" aria-label="Plataformas">
             <option value="" disabled selected>Selecionar uma Plataforma</option>
             @foreach($plataformas as $plataforma)
-                <option value="{{ $plataforma->id }}">{{ $plataforma->nome }}</option>
+            <option value="{{ $plataforma->id }}">{{ $plataforma->nome }}</option>
             @endforeach
         </select>
 
@@ -34,10 +42,18 @@
 
 </form>
 
+
+@if($jogos->isEmpty())
+
+<center> <h4>Nem um Jogo Cadastrado</h4> </center>
+
+@else
+
 <table class="table table-bordered">
     <thead>
         <tr class="table-info">
             <th>Jogo</th>
+            <th>Finalizado</th>
             <th>Plataforma</th>
             <th class="btn-tabela-th-td">Editar</th>
             <th class="btn-tabela-th-td">Excluir</th>
@@ -48,6 +64,7 @@
         @foreach($jogos as $jogo)
         <tr>
             <td>{{ $jogo->nome_jogo }}</td>
+            <td>{{ $jogo->jogo_finalizado }}</td>
             <td>{{ $jogo->nome_plataforma }}</td>
             <td class="btn-tabela-th-td">
                 <!-- Botão Editar -->
@@ -56,12 +73,16 @@
 
             <td class="btn-tabela-th-td">
                 <!-- Botão Excluir -->
-                <a href="{{ route('plataformas.confirmarExclusao', ['id' => $jogo->jogos_id]) }}" class="btn btn-danger">Excluir</a>
+                <a href="{{ route('plataformas.confirmarExclusao', ['id' => $jogo->jogos_id]) }}"
+                    class="btn btn-danger">Excluir</a>
             </td>
             <!-- Adicione outras colunas conforme necessário -->
         </tr>
         @endforeach
+
     </tbody>
 </table>
+
+@endif
 
 @endsection

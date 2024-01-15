@@ -20,9 +20,8 @@ class PlataformasController extends Controller
 
     public function index()
     {
-        $plataformas = Plataforma::all();
 
-        // Log::debug("emtrou");
+        $plataformas = Plataforma::orderBy('nome')->get();
 
         return view('plataformas_View', ['plataformas' => $plataformas]);
     }
