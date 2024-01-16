@@ -15,11 +15,11 @@
             <label class="form-check-label" for="jogo_finalizado">Finalizado</label>
             <input class="form-check-input" type="checkbox" name="jogo_finalizado" id="jogo_finalizado">
         </div>
-                
 
+    
         <!-- Adicionando o campo de seleção para as plataformas -->
         <select class="form-select" name="plataforma_id" aria-label="Plataformas">
-            <option value="" disabled selected>Selecionar uma Plataforma</option>
+            <option value="null" disabled selected>Selecionar uma Plataforma</option>
             @foreach($plataformas as $plataforma)
             <option value="{{ $plataforma->id }}">{{ $plataforma->nome }}</option>
             @endforeach
@@ -29,9 +29,7 @@
     </div>
 
     <!-- notificação de erro -->
-    @error('nome')
-    <div class="alert alert-danger" id="mesagem">{{ $message }}</div>
-    @enderror
+    @include('mensagem_erro')
 
     <!-- notificação de sucesso -->
     @if(session('success'))

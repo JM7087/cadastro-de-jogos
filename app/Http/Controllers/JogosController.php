@@ -40,22 +40,23 @@ class JogosController extends Controller
 
     public function store(Request $request)
     {
+        log::debug($request);
 
         $this->validacaoInputController->validateFormData($request);
 
-        // Criação de um novo jogo
-        $jogo = new Jogo();
-        $jogo->nome = $request->input('nome');
-        $jogo->jogo_finalizado = $request->has('jogo_finalizado') ? true : false;
-        // Outros campos a serem atualizados
+        // // Criação de um novo jogo
+        // $jogo = new Jogo();
+        // $jogo->nome = $request->input('nome');
+        // $jogo->jogo_finalizado = $request->has('jogo_finalizado') ? true : false;
+        // // Outros campos a serem atualizados
 
-        $jogo->save();
+        // $jogo->save();
 
-        // Adicionando o jogo à tabela jogo_plataforma
-        DB::table('jogo_plataforma')->insert([
-            'jogo_id' => $jogo->id,
-            'plataforma_id' => $request->input('plataforma_id'),
-        ]);
+        // // Adicionando o jogo à tabela jogo_plataforma
+        // DB::table('jogo_plataforma')->insert([
+        //     'jogo_id' => $jogo->id,
+        //     'plataforma_id' => $request->input('plataforma_id'),
+        // ]);
 
         // Redirecionar para a página de listagem de jogos
         return redirect('/jogos')->with('success', 'Jogo adicionado com sucesso!');
