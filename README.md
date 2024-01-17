@@ -50,6 +50,11 @@ Acesse o container
 docker-compose exec app bash
 ```
 
+Instalar o Composer
+```sh
+composer install
+```
+
 Gere a key do projeto Laravel
 ```sh
 php artisan key:generate

@@ -29,7 +29,7 @@ class PlataformasController extends Controller
     public function store(Request $request)
     {
         // Validação dos dados do formulário
-        $this->validacaoInputController->validateFormData($request);
+        $this->validacaoInputController->validaPlataforma($request);
 
         // Processar o envio do formulário e armazenar a nova plataforma
         $plataforma = new Plataforma();
@@ -56,7 +56,7 @@ class PlataformasController extends Controller
     public function update(Request $request, $id)
     {
         // Validação dos dados do formulário
-        $this->validacaoInputController->validateFormData($request);
+        $this->validacaoInputController->validaPlataforma($request);
 
         // Processar o envio do formulário de edição e atualizar a plataforma
         $plataforma = Plataforma::findOrFail($id);

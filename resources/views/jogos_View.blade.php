@@ -6,17 +6,25 @@
 
 <form action="{{ route('jogos.store') }}" method="POST">
     @csrf
-   
+
     <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Nome do Jogo" name="nome">
 
         <!-- Adicionando o checkbox -->
-        <div class="mx-2 py-1">
+        {{-- <div class="mx-2 py-1">
             <label class="form-check-label" for="jogo_finalizado">Finalizado</label>
             <input class="form-check-input" type="checkbox" name="jogo_finalizado" id="jogo_finalizado">
-        </div>
+        </div> --}}
 
-    
+       <!-- Adicionando o campo de seleção para jogo finalizado -->
+        <select class="form-select" name="jogo_finalizado">
+            <option value="null" disabled selected hidden>Jogo Finalizado Selecionar Sim ou Não</option>
+            <option value="1">Sim</option>
+            <option value="0">Não</option>
+
+        </select>
+
+
         <!-- Adicionando o campo de seleção para as plataformas -->
         <select class="form-select" name="plataforma_id" aria-label="Plataformas">
             <option value="null" disabled selected>Selecionar uma Plataforma</option>
@@ -29,7 +37,7 @@
     </div>
 
     <!-- notificação de erro -->
-    @include('mensagem_erro')
+    @include('mensagem_erro_jogos')
 
     <!-- notificação de sucesso -->
     @if(session('success'))
@@ -38,12 +46,15 @@
     </div>
     @endif
 
+
 </form>
 
 
 @if($jogos->isEmpty())
 
-<center> <h4>Nem um Jogo Cadastrado</h4> </center>
+<center>
+    <h4>Nem um Jogo Cadastrado</h4>
+</center>
 
 @else
 

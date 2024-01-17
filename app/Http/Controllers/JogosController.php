@@ -42,7 +42,7 @@ class JogosController extends Controller
     {
         log::debug($request);
 
-        $this->validacaoInputController->validateFormData($request);
+        $this->validacaoInputController->validaJogos($request);
 
         // // Criação de um novo jogo
         // $jogo = new Jogo();
