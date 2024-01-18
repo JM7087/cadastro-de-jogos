@@ -14,6 +14,7 @@ class JogoPlataforma extends Model
     protected $fillable = [
         'jogo_id',
         'plataforma_id',
+        'created_at',
     ];
 
     // Outros métodos, relacionamentos, escopos, etc., podem ser adicionados conforme necessário

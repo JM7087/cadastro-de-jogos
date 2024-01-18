@@ -13,18 +13,8 @@
     </div>
 
     <!-- notificação de erro -->
-    @error('nome')
-    <div class="alert alert-danger" id="mesagem">{{ $message }}</div>
-    @enderror
-
-    <!-- notificação de sucesso -->
-    @if(session('success'))
-    <div class="alert alert-success mt-3" id="mesagem">
-        {{ session('success') }}
-    </div>
-    @endif
-
-
+    @include('notificacaos')
+    
 </form>
 
 <table class="table table-bordered">

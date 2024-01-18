@@ -8,19 +8,22 @@
     @csrf
     @method('PUT')
 
-    <div class="mb-3">
-        <label for="editNome" class="form-label">Nome da Plataforma</label>
+    <div class="input-group mx-2 py-1">    
+        <label class="form-label mx-2 py-1">Nome da Plataforma:</label>
         <input type="text" class="form-control" id="editNome" name="nome" value="{{ $plataforma->nome }}">
     </div>
     <!-- Adicione outros campos conforme necessário -->
 
-     <!-- notificação de erro -->
-     @error('nome')
-     <div class="alert alert-danger" id="error-message">{{ $message }}</div>
-     @enderror
+     <!-- notificação -->
+     @include('notificacaos')
+
+     <center class="py-4">
 
     <button type="submit" class="btn btn-success">Atualizar</button>
     <a href="{{ route('plataformas.index') }}" class="btn btn-danger">Cancelar</a>
+    
+    </center>
+
 </form>
 
 @endsection

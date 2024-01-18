@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="d-flex justify-content-center align-items-center py-5">
-    <form action="{{ route('plataformas.destroy', ['id' => $plataforma->id]) }}" method="POST">
+    <form action="{{ route('jogos.destroy', ['id' => $jogo->id]) }}" method="POST">
         @csrf
         @method('DELETE')
 
@@ -13,13 +13,8 @@
 
         <center class="py-4">
 
-            @if($disabled)
-            <button type="submit" class="btn btn-secondary" disabled >Confirmar</button>
-            @else
             <button type="submit" class="btn btn-success">Confirmar</button>
-            @endif
-
-        <a href="{{ route('plataformas.index') }}" class="btn btn-danger">Cancelar</a>
+            <a href="{{ route('jogos.index') }}" class="btn btn-danger">Cancelar</a>
 
         </center>
 

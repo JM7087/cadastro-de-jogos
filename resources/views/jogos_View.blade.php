@@ -27,7 +27,7 @@
 
         <!-- Adicionando o campo de seleção para as plataformas -->
         <select class="form-select" name="plataforma_id" aria-label="Plataformas">
-            <option value="null" disabled selected>Selecionar uma Plataforma</option>
+            <option value="null" disabled selected hidden>Selecionar uma Plataforma</option>
             @foreach($plataformas as $plataforma)
             <option value="{{ $plataforma->id }}">{{ $plataforma->nome }}</option>
             @endforeach
@@ -37,14 +37,7 @@
     </div>
 
     <!-- notificação de erro -->
-    @include('mensagem_erro_jogos')
-
-    <!-- notificação de sucesso -->
-    @if(session('success'))
-    <div class="alert alert-success mt-3" id="mesagem">
-        {{ session('success') }}
-    </div>
-    @endif
+    @include('notificacaos')
 
 
 </form>
@@ -77,12 +70,12 @@
             <td>{{ $jogo->nome_plataforma }}</td>
             <td class="btn-tabela-th-td">
                 <!-- Botão Editar -->
-                <a href="{{ route('plataformas.edit', ['id' => $jogo->jogos_id]) }}" class="btn btn-primary">Editar</a>
+                <a href="{{ route('jogos.edit', ['id' => $jogo->jogos_id]) }}" class="btn btn-primary">Editar</a>
             </td>
 
             <td class="btn-tabela-th-td">
                 <!-- Botão Excluir -->
-                <a href="{{ route('plataformas.confirmarExclusao', ['id' => $jogo->jogos_id]) }}"
+                <a href="{{ route('jogos.confirmarExclusao', ['id' => $jogo->jogos_id]) }}"
                     class="btn btn-danger">Excluir</a>
             </td>
             <!-- Adicione outras colunas conforme necessário -->

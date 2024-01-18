@@ -29,11 +29,11 @@
                             <a class="nav-link" href="{{ url('/') }}">Início</a>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/jogos') }}">Editar Jogos</a>
+                            <a class="nav-link" href="{{ url('/jogos') }}">Jogos</a>
                         </li>
 
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/plataformas') }}">Editar Plataformas</a>
+                        <a class="nav-link" href="{{ url('/plataformas') }}">Plataformas</a>
                         </li>
 
                         <!-- Adicione aqui seus links de navegação -->

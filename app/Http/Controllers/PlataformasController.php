@@ -49,7 +49,7 @@ class PlataformasController extends Controller
 
         $title = 'Editar Plataforma';
 
-        return view('paginasDeConfirmasao.editarPlataforma_view', ['plataforma' => $plataforma, 'title' => $title]);
+        return view('editarViews.editarPlataforma_view', ['plataforma' => $plataforma, 'title' => $title]);
     }
 
 
