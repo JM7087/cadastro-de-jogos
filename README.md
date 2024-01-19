@@ -1,5 +1,5 @@
 ## Sistema em desenvolvimento
-esse é um projeto básico de grud em laravel é docker para minha aprendizagem.
+esse é um projeto básico de crud em laravel é docker, de cadastro de jogos.
 
 ## Passo a passo para rodar o projeto
 
