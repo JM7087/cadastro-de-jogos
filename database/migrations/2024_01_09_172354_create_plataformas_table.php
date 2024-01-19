@@ -38,8 +38,18 @@ class CreatePlataformasTable extends Migration
             'Nintendo Switch', // 8ª geração
             'Wii U', // 8ª geração
             'PlayStation 5', // 9ª geração
-            'Xbox Series X/S' // 9ª geração
-        ];
+            'Xbox Series X/S', // 9ª geração
+            'Steam', // Loja de jogos para PC
+            'Epic Games Store', // Loja de jogos para PC
+            'GOG', // Good Old Games
+            'Origin', // EA Origin
+            'Uplay', // Ubisoft Uplay
+            'Microsoft Store', // Microsoft Store
+            'Humble Store', // Humble Bundle Store
+            'Green Man Gaming', // Green Man Gaming
+            'Itch.io', // Itch.io
+            // Adicione outras lojas de jogos para PC conforme necessário
+        ];        
         
 
         foreach ($consoles as $console) {

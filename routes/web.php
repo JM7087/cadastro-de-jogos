@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlataformasController;
 use App\Http\Controllers\JogosController;
@@ -15,9 +16,9 @@ use App\Http\Controllers\JogosController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',  [HomeController::class, 'index'])->name('home.index');
+
+Route::get('/home/consultar', [HomeController::class, 'consultar'])->name('home.consultar');
 
 // ======================================== route jogos ============================================================
 

@@ -62,9 +62,7 @@ class JogosController extends Controller
 
         $jogo = $this->jogoService->editarJogo($id);
 
-        $title = 'Editar Jogo';
-
-        return view('editarViews.editarJogos_view', ['jogo' => $jogo, 'title' => $title, 'plataformas' => $plataformas]);
+        return view('editarViews.editarJogos_view', ['jogo' => $jogo, 'title' => ' - Editar Jogo', 'plataformas' => $plataformas]);
     }
 
     public function update(Request $request, $jogoId)
@@ -94,12 +92,10 @@ class JogosController extends Controller
     {
         $jogo = Jogo::findOrFail($id);
 
-        $title = 'Excluir Jogo';
-
         $mensagemDeConfimasao = "Tem certeza que deseja Excluir o Jogo ( $jogo->nome )";
 
         return view('paginasDeConfirmasao.confirmarExclusaoJogo_view',
-                   ['jogo' => $jogo, 'title' => $title, 'mensagemDeConfimasao' => $mensagemDeConfimasao]);
+                   ['jogo' => $jogo, 'title' => ' - Excluir Jogo', 'mensagemDeConfimasao' => $mensagemDeConfimasao]);
     }
 
     public function destroy($id)

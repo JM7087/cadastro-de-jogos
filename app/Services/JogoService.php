@@ -37,4 +37,36 @@ class JogoService {
         return $jogo;
     }
 
+    public function consultarJogosPlataformas($nomeJogo, $plataformaId, $jogoFinalizado)
+    {
+        $jogosPlataformas = DB::table('jogo_plataforma')
+            ->join('jogos', 'jogo_plataforma.jogo_id', '=', 'jogos.id')
+            ->join('plataformas', 'jogo_plataforma.plataforma_id', '=', 'plataformas.id')
+            ->select(
+                'jogos.id as jogos_id',
+                'plataformas.id as plataformas_id',
+                'jogos.nome as nome_jogo',
+
+                // ou adiciona na view <td>{{ $jogo->jogo_finalizado == 1 ? 'Sim' : 'Não' }}</td>
+                DB::raw("CASE WHEN jogos.jogo_finalizado = 1 THEN 'Sim' ELSE 'Não' END AS jogo_finalizado"),
+                'plataformas.nome as nome_plataforma'
+            );
+
+            if ($nomeJogo !== null) {
+                $jogosPlataformas->where('jogos.nome', 'LIKE', '%' . $nomeJogo . '%');           
+            }
+
+            if ($plataformaId !== null) {
+                $jogosPlataformas->where('plataformas.id', $plataformaId);
+            }
+            
+            if ($jogoFinalizado !== null) {
+                $jogosPlataformas->where('jogos.jogo_finalizado', $jogoFinalizado);
+            }
+            
+            $result = $jogosPlataformas->get();
+            
+        return $result;
+    }
+
 }

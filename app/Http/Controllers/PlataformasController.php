@@ -47,9 +47,7 @@ class PlataformasController extends Controller
         $plataforma = Plataforma::findOrFail($id);
         // redirecionar para pagina de edição
 
-        $title = 'Editar Plataforma';
-
-        return view('editarViews.editarPlataforma_view', ['plataforma' => $plataforma, 'title' => $title]);
+        return view('editarViews.editarPlataforma_view', ['plataforma' => $plataforma, 'title' => ' - Editar Plataforma']);
     }
 
 
@@ -74,7 +72,7 @@ class PlataformasController extends Controller
         $plataforma = Plataforma::findOrFail($id);
         // redirecionar para pagina de exlusão
 
-        $title = 'Excluir Plataforma';
+        $title = ' - Excluir Plataforma';
 
         // verificar relacionamento plataforma jogos
         $jogoPlataforma = JogoPlataforma::where('plataforma_id', $id)->exists();
