@@ -1,7 +1,7 @@
 # Sistema de Controle de Jogos
 
 ## Descrição
-Este é um sistema simples de Cadastro de jogos desenvolvido em PHP e Laravel.
+Este é um sistema simples (CRUD) de Cadastro de jogos desenvolvido em Laravel, PHP, MySQL e Docker.
 
 ## Recursos
 
