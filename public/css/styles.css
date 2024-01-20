@@ -16,6 +16,19 @@
     text-align: center;
 }
 
+.jogos-tabela-th-td {
+    width: 45%;
+}
+
+.jogo-finalizado-tabela-th-td {
+    width: 8%;
+    text-align: center;
+}
+
+.nav-link {
+    color: #ffffff;
+}
+
 main {
     flex-grow: 1;
 }

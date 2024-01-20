@@ -54,8 +54,8 @@
 <table class="table table-bordered">
     <thead>
         <tr class="table-info">
-            <th>Jogo</th>
-            <th>Finalizado</th>
+            <th class="jogos-tabela-th-td">Jogo</th>
+            <th class="jogo-finalizado-tabela-th-td">Finalizado</th>
             <th>Plataforma</th>
             <th class="btn-tabela-th-td">Editar</th>
             <th class="btn-tabela-th-td">Excluir</th>
@@ -65,8 +65,8 @@
     <tbody>
         @foreach($jogos as $jogo)
         <tr>
-            <td>{{ $jogo->nome_jogo }}</td>
-            <td>{{ $jogo->jogo_finalizado }}</td>
+            <td class="jogos-tabela-th-td">{{ $jogo->nome_jogo }}</td>
+            <td class="jogo-finalizado-tabela-th-td">{{ $jogo->jogo_finalizado }}</td>
             <td>{{ $jogo->nome_plataforma }}</td>
             <td class="btn-tabela-th-td">
                 <!-- Botão Editar -->
