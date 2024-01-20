@@ -44,4 +44,18 @@ class ValidacaoInputController extends Controller
          ]);
      }
 
+     public function validaConsultarJogos(Request $request)
+     {
+         // Defina as regras de validação conforme necessário
+         $request->validate([
+             'nome' => 'required_without_all:plataforma_id,jogo_finalizado',
+             'plataforma_id' => 'required_without_all:jogo_finalizado,nome',
+             'jogo_finalizado' => 'required_without_all:plataforma_id,nome',
+             // Adicione outras regras para outros campos, se necessário
+         ], [
+            'required_without_all' => 'Preencher pelo menos um dos campos (Plataforma, Jogo Finalizado, Nome) é obrigatório.',
+             // Adicione mensagens personalizadas para outras regras, se necessário
+         ]);
+     }
+
 }

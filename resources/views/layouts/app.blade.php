@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('img/icone.png') }}">
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Cadastro de Jogos @yield('title')</title>
     <!-- Adicione aqui seus links para estilos CSS -->
@@ -17,6 +19,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
+                <img src="{{ asset('img/navIcone.png') }}" width="30" height="30" class="d-inline-block align-top mx-2">
                 <div class="navbar-brand"> Cadastro de Jogos @yield('title')</div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

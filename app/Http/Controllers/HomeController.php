@@ -33,7 +33,8 @@ class HomeController extends Controller
 
     public function consultar(Request $request)
     {
-        // log::debug($request);
+
+        $this->validacaoInputController->validaConsultarJogos($request);
 
         $nomeJogo = $request->input('nome');
         $plataformaId = $request->input('plataforma_id');

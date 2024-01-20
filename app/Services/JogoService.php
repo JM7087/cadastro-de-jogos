@@ -20,7 +20,7 @@ class JogoService {
                 DB::raw("CASE WHEN jogos.jogo_finalizado = 1 THEN 'Sim' ELSE 'Não' END AS jogo_finalizado"),
                 'plataformas.nome as nome_plataforma'
             )
-            ->get();  
+            ->orderBy('jogos.nome')->get();  
             
         return $jogosPlataformas;
     }
@@ -64,7 +64,7 @@ class JogoService {
                 $jogosPlataformas->where('jogos.jogo_finalizado', $jogoFinalizado);
             }
             
-            $result = $jogosPlataformas->get();
+            $result = $jogosPlataformas->orderBy('jogos.nome')->get();
             
         return $result;
     }
