@@ -46,11 +46,7 @@ Este é um sistema simples (CRUD) de Cadastro de jogos desenvolvido em Laravel, 
 
 ## Instalação
 
-1. Clone o repositório:
-
-```bash
-git clone https://github.com/seu-usuario/sistema-controle-jogos.git
-
+1. Clone o repositório
 
 ## Passo a passo para rodar o projeto
 
