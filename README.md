@@ -41,6 +41,10 @@ Este é um sistema simples (CRUD) de Cadastro de jogos desenvolvido em Laravel, 
 
 <img src="https://blogger.googleusercontent.com/img/a/AVvXsEh2vFIMDcaITtSE-nsaUgBJA4sN0XD3yYJHV3-oMTYb2ACHPFWQJiVV_NHgffGkpXzcW-KWSlxtxQCPGAH8X4MkAODLCCj0uEdZxRoeP1AMil3Zl0FOue64SAFDyajpVfi56AHshqJwLHEhBTTJt0m-metKvXCYFejAzrBidzz27fNcwBlidHsZZbSyxOA" width="800">
 
+<h2 align="center">Banco de Dados</h2>
+
+<img src="https://blogger.googleusercontent.com/img/a/AVvXsEhBDAiVzHyeZiKBfKsHJgbbLVNqIGx7M536RPiJ9yp1y4q7Xs0sP3PDOwYC6JAtDiBrNw0wRiAZwg6dx844AMvjwTT_FqrlbugkpZi0ApTt9psJs99FILDvUE-l2fC-39arR30nD_kNAbdHDazQnYL-RHFRMo034C19y2VBShdqc6LFY8CzHm-eik6c2qM" width="800">
+
 
 ## Instalação
 
