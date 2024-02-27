@@ -39,6 +39,10 @@
                         <a class="nav-link" href="{{ url('/plataformas') }}">Plataformas</a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/categorias') }}">Categorias</a>
+                            </li>
+
                         <!-- Adicione aqui seus links de navegação -->
                         </li>
                     </ul>

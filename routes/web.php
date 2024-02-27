@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlataformasController;
 use App\Http\Controllers\JogosController;
+use App\Http\Controllers\CategoriasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +62,23 @@ Route::get('/plataformas/confirmarExclusao/{id}', [PlataformasController::class,
 
 // Rota para excluir uma plataforma
 Route::delete('/plataformas/excluir/{id}', [PlataformasController::class, 'destroy'])->name('plataformas.destroy');
+
+// ======================================== route categorias ============================================================
+
+// Rota para exibir a lista de categorias
+Route::get('/categorias', [CategoriasController::class, 'index'])->name('categorias.index');
+
+// Rota para armazenar uma nova categoria
+Route::post('/categorias/armazenar', [CategoriasController::class, 'store'])->name('categorias.store');
+
+// Rota para exibir o formulário de edição de categoria
+Route::get('/categorias/editar/{id}', [CategoriasController::class, 'edit'])->name('categorias.edit');
+
+// Rota para atualizar os dados da categoria após edição
+Route::put('/categorias/atualizar/{id}', [CategoriasController::class, 'update'])->name('categorias.update');
+
+// Rota para exibir a página de confirmação de exclusão de categoria
+Route::get('/categorias/confirmarExclusao/{id}', [CategoriasController::class, 'confirmarExclusao'])->name('categorias.confirmarExclusao');
+
+// Rota para excluir uma categoria
+Route::delete('/categorias/excluir/{id}', [CategoriasController::class, 'destroy'])->name('categorias.destroy');
