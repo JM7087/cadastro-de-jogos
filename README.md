@@ -7,7 +7,7 @@ Este é um sistema simples (CRUD) de Cadastro de jogos desenvolvido em Laravel, 
 
 - Cadastro, edição e exclusão de jogos.
 - Associação de jogos a plataformas.
-- Consulta de jogos por nome, plataforma e status de finalização.
+- Consulta de jogos por nome, plataforma e status de finalização, Categorias.
 
 ## Capturas de Telas
 
@@ -43,7 +43,7 @@ Este é um sistema simples (CRUD) de Cadastro de jogos desenvolvido em Laravel, 
 
 <h2 align="center">Banco de Dados</h2>
 
-<img src="https://blogger.googleusercontent.com/img/a/AVvXsEhBDAiVzHyeZiKBfKsHJgbbLVNqIGx7M536RPiJ9yp1y4q7Xs0sP3PDOwYC6JAtDiBrNw0wRiAZwg6dx844AMvjwTT_FqrlbugkpZi0ApTt9psJs99FILDvUE-l2fC-39arR30nD_kNAbdHDazQnYL-RHFRMo034C19y2VBShdqc6LFY8CzHm-eik6c2qM" width="800">
+<img src="https://blogger.googleusercontent.com/img/a/AVvXsEiR_UMr7VT2mgIDWHDKYwRIDOTCLT3RVNR6uCGIUFBudSNZ-5Il7k5DGESzDUps7u20ccvDJVQdouOufJMGruEAjga4wyaU_htd0eo6Wg_4TfizuUyhNYKIvk7kf5PQ4pPQeDEl4cT0oK7tME5yhSzjZjzgtBOm3OCOB9aKlKQMYvXF-7qmqFJPxgnZn2t8" width="800">
 
 
 ## Instalação
