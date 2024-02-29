@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\Jogo;
+use App\Models\JogoCategoria;
 use App\Models\JogoPlataforma;
 use App\Models\Plataforma;
 use App\Services\JogoService;
@@ -26,9 +28,11 @@ class JogosController extends Controller
     {
         $plataformas = Plataforma::orderBy('nome')->get();
 
-        $jogos = $this->jogoService->listarJogosPlataformas();
+        $categorias = Categoria::orderBy('nome')->get();
 
-        return view('jogos_View', ['jogos' => $jogos, 'plataformas' => $plataformas]);
+        $jogos = $this->jogoService->listarJogosPlataformasCategorias();
+
+        return view('jogos_View', ['jogos' => $jogos, 'plataformas' => $plataformas, 'categorias' => $categorias]);
     }
 
     public function store(Request $request)
@@ -51,6 +55,14 @@ class JogosController extends Controller
             'created_at' =>  new DateTime(),
         ]);
 
+        // Adicionando o jogo à tabela jogo_categoria
+        DB::table('jogo_categoria')->insert([
+            'jogo_id' => $jogo->id,
+            'categoria_id' => $request->input('categoria_id'),
+            'created_at' => now(),
+        ]);
+
+
         // Redirecionar para a página de listagem de jogos
         return redirect('/jogos')->with('success', 'Jogo adicionado com sucesso!');
     }
@@ -60,9 +72,11 @@ class JogosController extends Controller
     {
         $plataformas = Plataforma::orderBy('nome')->get();
 
+        $categorias = Categoria::orderBy('nome')->get();
+
         $jogo = $this->jogoService->editarJogo($id);
 
-        return view('editarViews.editarJogos_view', ['jogo' => $jogo, 'title' => ' - Editar Jogo', 'plataformas' => $plataformas]);
+        return view('editarViews.editarJogos_view', ['jogo' => $jogo, 'title' => ' - Editar Jogo', 'plataformas' => $plataformas, 'categorias' => $categorias]);
     }
 
     public function update(Request $request, $jogoId)
@@ -79,10 +93,16 @@ class JogosController extends Controller
         $jogo->save();
 
         // atualizar plataforma do jogo
-        $jogosPlataformas = JogoPlataforma::where('jogo_id', $jogoId)->first();
-        $jogosPlataformas->plataforma_id = $request->input('plataforma_id');
+        $jogosPlataforma = JogoPlataforma::where('jogo_id', $jogoId)->first();
+        $jogosPlataforma->plataforma_id = $request->input('plataforma_id');
 
-        $jogosPlataformas->save();
+        $jogosPlataforma->save();
+
+         // atualizar categoria do jogo
+         $jogosCategoria = JogoCategoria::where('jogo_id', $jogoId)->first();
+         $jogosCategoria->categoria_id = $request->input('categoria_id');
+
+         $jogosCategoria->save();
 
         // Redirecionar para a página de listagem de jogos
         return redirect('/jogos')->with('success', 'Jogo Alterado com sucesso!');
@@ -94,8 +114,10 @@ class JogosController extends Controller
 
         $mensagemDeConfimasao = "Tem certeza que deseja Excluir o Jogo ( $jogo->nome )";
 
-        return view('paginasDeConfirmasao.confirmarExclusaoJogo_view',
-                   ['jogo' => $jogo, 'title' => ' - Excluir Jogo', 'mensagemDeConfimasao' => $mensagemDeConfimasao]);
+        return view(
+            'paginasDeConfirmasao.confirmarExclusaoJogo_view',
+            ['jogo' => $jogo, 'title' => ' - Excluir Jogo', 'mensagemDeConfimasao' => $mensagemDeConfimasao]
+        );
     }
 
     public function destroy($id)
@@ -105,6 +127,9 @@ class JogosController extends Controller
 
         // Excluir relacionamendo (jogo_plataforma)
         DB::table('jogo_plataforma')->where('jogo_id', $id)->delete();
+
+        // Excluir relacionamendo (jogo_categoria)
+        DB::table('jogo_categoria')->where('jogo_id', $id)->delete();
 
         // Agora, você pode excluir o jogo
         $jogo->delete();

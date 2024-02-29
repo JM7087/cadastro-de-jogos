@@ -17,13 +17,19 @@
         </div> --}}
 
        <!-- Adicionando o campo de seleção para jogo finalizado -->
-        <select class="form-select" name="jogo_finalizado">
-            <option value="null" disabled selected hidden>Jogo Finalizado Selecionar Sim ou Não</option>
+       <select class="form-select" name="jogo_finalizado" style="width: 8%;">
+        <option value="null" disabled selected hidden>Jogo Finalizado Selecionar Sim ou Não</option>
             <option value="1">Sim</option>
             <option value="0">Não</option>
-
         </select>
 
+         <!-- Adicionando o campo de seleção para as categorias -->
+         <select class="form-select" name="categoria_id" aria-label="Categoria">
+            <option value="null" disabled selected hidden>Selecionar uma Categoria</option>
+            @foreach($categorias as $categoria)
+            <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+            @endforeach
+        </select>
 
         <!-- Adicionando o campo de seleção para as plataformas -->
         <select class="form-select" name="plataforma_id" aria-label="Plataformas">
@@ -56,6 +62,7 @@
         <tr class="table-info">
             <th class="jogos-tabela-th-td">Jogo</th>
             <th class="jogo-finalizado-tabela-th-td">Finalizado</th>
+            <th>Categoria</th>
             <th>Plataforma</th>
             <th class="btn-tabela-th-td">Editar</th>
             <th class="btn-tabela-th-td">Excluir</th>
@@ -67,6 +74,7 @@
         <tr>
             <td class="jogos-tabela-th-td">{{ $jogo->nome_jogo }}</td>
             <td class="jogo-finalizado-tabela-th-td">{{ $jogo->jogo_finalizado }}</td>
+            <td>{{ $jogo->nome_categoria }}</td>
             <td>{{ $jogo->nome_plataforma }}</td>
             <td class="btn-tabela-th-td">
                 <!-- Botão Editar -->

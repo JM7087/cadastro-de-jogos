@@ -26,12 +26,26 @@
             @endif
         </select>
 
+         <!-- Adicionando o campo de seleção para as categorias -->
+         <label class="form-label mx-2 py-1">Categoria:</label>
+         <select class="form-select" name="categoria_id" aria-label="Categoria">
+            <option value="null" disabled selected hidden>Selecionar uma Categoria</option>
+            @foreach($categorias as $categoria)
+
+            @if($categoria->id == $jogo->categoria_id)
+            <option selected hidden value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+            @endif
+
+            <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+            @endforeach
+        </select>
+
         <!-- Adicionando o campo de seleção para as plataformas -->
         <label class="form-label mx-2 py-1">Plataforma:</label>
         <select class="form-select" name="plataforma_id" aria-label="Plataformas">
             @foreach($plataformas as $plataforma)
             @if($plataforma->id == $jogo->plataforma_id)
-            <option selected value="{{ $plataforma->id }}">{{ $plataforma->nome }}</option>
+            <option selected hidden value="{{ $plataforma->id }}">{{ $plataforma->nome }}</option>
             @endif
             <option value="{{ $plataforma->id }}">{{ $plataforma->nome }}</option>
             @endforeach

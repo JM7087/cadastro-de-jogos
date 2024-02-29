@@ -15,7 +15,7 @@
         @endif
 
         <!-- Adicionando o campo de seleção para jogo finalizado -->
-        <select class="form-select" name="jogo_finalizado">
+        <select class="form-select" name="jogo_finalizado" style="width: 8%;">
             @if(isset($jogoFinalizado))
             <option value="1" {{ $jogoFinalizado==1 ? 'selected' : '' }}>Sim</option>
             <option value="0" {{ $jogoFinalizado==0 ? 'selected' : '' }}>Não</option>
@@ -26,13 +26,26 @@
             @endif
         </select>
 
+        <!-- Adicionando o campo de seleção para as categorias -->
+        <select class="form-select" name="categoria_id" aria-label="Categoria">
+            <option value="null" disabled selected hidden>Selecionar uma Categoria</option>
+            @foreach($categorias as $categoria)
+
+            @if($categoria->id == $categoriaId)
+            <option selected hidden value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+            @endif
+
+            <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+            @endforeach
+        </select>
+
         <!-- Adicionando o campo de seleção para as plataformas -->
         <select class="form-select" name="plataforma_id" aria-label="Plataformas">
             <option value="null" disabled selected hidden>Selecionar uma Plataforma</option>
             @foreach($plataformas as $plataforma)
 
             @if($plataforma->id == $plataformaId)
-            <option selected value="{{ $plataforma->id }}">{{ $plataforma->nome }}</option>
+            <option selected hidden value="{{ $plataforma->id }}">{{ $plataforma->nome }}</option>
             @endif
 
             <option value="{{ $plataforma->id }}">{{ $plataforma->nome }}</option>
@@ -67,6 +80,7 @@
         <tr class="table-info">
             <th class="jogos-tabela-th-td">Jogo</th>
             <th class="jogo-finalizado-tabela-th-td">Finalizado</th>
+            <th>Categoria</th>
             <th>Plataforma</th>
             <!-- Adicione outras colunas conforme necessário -->
         </tr>
@@ -76,6 +90,7 @@
         <tr>
             <td class="jogos-tabela-th-td">{{ $jogo->nome_jogo }}</td>
             <td class="jogo-finalizado-tabela-th-td">{{ $jogo->jogo_finalizado }}</td>
+            <td>{{ $jogo->nome_categoria }}</td>
             <td>{{ $jogo->nome_plataforma }}</td>
 
             <!-- Adicione outras colunas conforme necessário -->

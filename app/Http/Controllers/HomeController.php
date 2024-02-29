@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\Plataforma;
 use App\Services\JogoService;
 use Illuminate\Http\Request;
@@ -23,11 +24,13 @@ class HomeController extends Controller
 
         $plataformas = Plataforma::orderBy('nome')->get();
 
-        $jogos = $this->jogoService->listarJogosPlataformas();
+        $categorias = Categoria::orderBy('nome')->get();
+
+        $jogos = $this->jogoService->listarJogosPlataformasCategorias();
 
         return view('home_View', 
-                   ['jogos' => $jogos, 'plataformas' => $plataformas, 'consultar' => false, 
-                    'nomeConsultar' => null, 'jogoFinalizado' => null, 'title' => '', 'plataformaId' => null]);
+                   ['jogos' => $jogos, 'plataformas' => $plataformas, 'consultar' => false, 'categorias' => $categorias,
+                   'nomeConsultar' => null, 'jogoFinalizado' => null, 'title' => '', 'plataformaId' => null, 'categoriaId' => null]);
 
     }
 
@@ -37,16 +40,19 @@ class HomeController extends Controller
         $this->validacaoInputController->validaConsultarJogos($request);
 
         $nomeJogo = $request->input('nome');
-        $plataformaId = $request->input('plataforma_id');
         $jogoFinalizado = $request->input('jogo_finalizado');
+        $categoriaId = $request->input('categoria_id');
+        $plataformaId = $request->input('plataforma_id');
 
         $plataformas = Plataforma::orderBy('nome')->get();
 
-        $jogos = $this->jogoService->consultarJogosPlataformas($nomeJogo, $plataformaId, $jogoFinalizado);
+        $categorias = Categoria::orderBy('nome')->get();
+
+        $jogos = $this->jogoService->consultarFiltrdaDeJogos($nomeJogo, $plataformaId, $jogoFinalizado, $categoriaId);
 
         return view('home_View', 
-                   ['jogos' => $jogos, 'plataformas' => $plataformas, 'consultar' => true, 
-                    'nomeJogo' => $nomeJogo, 'jogoFinalizado' => $jogoFinalizado, 
-                    'plataformaId' => $plataformaId, 'title' => ' - Consultar']);
+                   ['jogos' => $jogos, 'plataformas' => $plataformas, 'categorias' => $categorias,
+                    'consultar' => true, 'nomeJogo' => $nomeJogo, 'jogoFinalizado' => $jogoFinalizado, 
+                    'categoriaId' => $categoriaId, 'plataformaId' => $plataformaId, 'title' => ' - Consultar']);
     }
 }

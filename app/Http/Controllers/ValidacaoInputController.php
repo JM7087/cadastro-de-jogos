@@ -47,6 +47,7 @@ class ValidacaoInputController extends Controller
              'nome' => 'required|string|min:2|max:50',
              'plataforma_id' => 'required',
              'jogo_finalizado' => 'required',
+             'categoria_id' => 'required',
              // Adicione outras regras para outros campos, se necessário
          ], [
              'nome.required' => 'O campo nome é obrigatório.',
@@ -54,6 +55,7 @@ class ValidacaoInputController extends Controller
              'nome.min' => 'O campo nome deve ter pelo menos 2 caracteres.',
              'nome.max' => 'O campo nome não deve ter mais de 50 caracteres.',
              'plataforma_id.required' => 'Selecionar uma Plataforma é obrigatório.',
+             'categoria_id.required' => 'Selecionar uma Categoria é obrigatório.',
              'jogo_finalizado.required' => 'Selecionar uma Opção de Jogo Finalizado é obrigatório.',
              // Adicione mensagens personalizadas para outras regras, se necessário
          ]);
@@ -63,12 +65,13 @@ class ValidacaoInputController extends Controller
      {
          // Defina as regras de validação conforme necessário
          $request->validate([
-             'nome' => 'required_without_all:plataforma_id,jogo_finalizado',
-             'plataforma_id' => 'required_without_all:jogo_finalizado,nome',
-             'jogo_finalizado' => 'required_without_all:plataforma_id,nome',
+             'nome' => 'required_without_all:plataforma_id,jogo_finalizado,categoria_id',
+             'plataforma_id' => 'required_without_all:jogo_finalizado,categoria_id,nome',
+             'jogo_finalizado' => 'required_without_all:plataforma_id,categoria_id,nome',
+             'categoria_id' => 'required_without_all:jogo_finalizado,plataforma_id,nome',
              // Adicione outras regras para outros campos, se necessário
          ], [
-            'required_without_all' => 'Preencher pelo menos um dos campos (Plataforma, Jogo Finalizado, Nome) é obrigatório.',
+            'required_without_all' => 'Preencher pelo menos um dos campos (Plataforma, Categoria, Jogo Finalizado, Nome) é obrigatório.',
              // Adicione mensagens personalizadas para outras regras, se necessário
          ]);
      }
