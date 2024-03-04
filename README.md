@@ -7,7 +7,12 @@ Este é um sistema simples (CRUD) de Cadastro de jogos desenvolvido em Laravel, 
 
 - Cadastro, edição e exclusão de jogos.
 - Associação de jogos a plataformas.
-- Consulta de jogos por nome, plataforma e status de finalização, Categorias.
+- Consulta de jogos por nome, plataforma, status de finalização e Categorias.
+
+
+<h2 align="center">Banco de Dados</h2>
+
+<img src="https://blogger.googleusercontent.com/img/a/AVvXsEiR_UMr7VT2mgIDWHDKYwRIDOTCLT3RVNR6uCGIUFBudSNZ-5Il7k5DGESzDUps7u20ccvDJVQdouOufJMGruEAjga4wyaU_htd0eo6Wg_4TfizuUyhNYKIvk7kf5PQ4pPQeDEl4cT0oK7tME5yhSzjZjzgtBOm3OCOB9aKlKQMYvXF-7qmqFJPxgnZn2t8" width="800">
 
 ## Capturas de Telas
 
@@ -43,9 +48,17 @@ Este é um sistema simples (CRUD) de Cadastro de jogos desenvolvido em Laravel, 
 
 <img src="https://blogger.googleusercontent.com/img/a/AVvXsEiTmH-aZ-tjnmtKJgASIJ0h2h_dale_2SwTkhi5kpuLJAVtaSrfrvOyyZyPcReoasvc7MDAPu1It_AwZcV0lkpk6LNeUr0UADUxn7G0si-WL56MJG7UyYR3TbP_xcAjV2PloBWMMDztesrG2K3CnyPATkmFadkehLtJEKVjdxnTmestzefp3YfqKGyshhbY" width="800">
 
-<h2 align="center">Banco de Dados</h2>
+<h2 align="center">Páginas Categorias</h2>
 
-<img src="https://blogger.googleusercontent.com/img/a/AVvXsEiR_UMr7VT2mgIDWHDKYwRIDOTCLT3RVNR6uCGIUFBudSNZ-5Il7k5DGESzDUps7u20ccvDJVQdouOufJMGruEAjga4wyaU_htd0eo6Wg_4TfizuUyhNYKIvk7kf5PQ4pPQeDEl4cT0oK7tME5yhSzjZjzgtBOm3OCOB9aKlKQMYvXF-7qmqFJPxgnZn2t8" width="800">
+<img src="https://blogger.googleusercontent.com/img/a/AVvXsEgp6X9XfQdMl6VdtCG2dbeR04BXowcBnn78nx_GrYu-vMy71xBiRhe5SjG4rMTzo0XSey09kHH-ZDuywyWngLM7eEcXRrPily0wkT2j5kTFcHqBo4rHZPElrxvVZj41iIGFpTucUYN5-GPT89VWEv0ufbG01ZjX1bzjlQjc04B_uEzG7wsW0KB06Cz0pxyu" width="800">
+
+<img src="https://blogger.googleusercontent.com/img/a/AVvXsEg0rDTwZAJhCm5P-s1chcBG7mZYms6rQAkgILCi_dAtcwD1E8nRVkz2pw8sR7yg1Yea50b7Z9oNbi0erUVz3QNDo2f3Xbq6cLPsQnu8tB1yLi6sItUgSOfb5Rngg7olP8kNzohmyzNjV91JPnmkcjt0Po0RmBaf754yhWkFBWm5oFVIObnTEWYQdC5LA7Gb" width="800">
+
+<img src="https://blogger.googleusercontent.com/img/a/AVvXsEh4gZDlDooi_5EAtMSn3fHtN_kU1jqXJtNPfzeu-PFi_8KOIuKhirjnwxmPimcRFWovWuf_NPXnYWDqbr7jlIDjeeOe1nQOk-Ja4xDpGDkfapTCKu1E5vD2FoGriNZ1VmkK9JbvRd-Dp04SVwlVHdqmGvPAbUDsWzqsVdNfq6E85zUy5ldXdLqNO_3D_Qd5" width="800">
+
+<img src="https://blogger.googleusercontent.com/img/a/AVvXsEgdmbmfagM0ad7CB-IvYuJ-jwaGBLgzHZcrrZn87RY3E_FF5b2hSZEe8YJINNacQ0puPmMAxxQmgZkFP4pajZCetmszLEeh0UFjgq36VBhDw0t8-roX9GdaWfeN5nF0Y7c3dj32iIPn5NwNBH5PTUfrz4BEylkPvMj-OUuDv7JiZ6zJjTAiFIt_o6r0PWGW" width="800">
+
+<img src="https://blogger.googleusercontent.com/img/a/AVvXsEgbvuz-CW-vMcSkLShv06H1rQA7ftq7HbsYvXgy5PWqVCo0Etv42Jehfs-0EfnEqkyGNDd29e5CEpMxs45X8gbj08zpKyEvhZKc7Ey5TjQsbqGgfgU_r7Ml6jmcDeR0qZzVSS73_ij8N-NmwlIoG-seECmyEyH_v093vnTBRILPOppDb4tA9a7Tf-jafWeB" width="800">
 
 
 ## Instalação
