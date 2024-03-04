@@ -6,7 +6,10 @@ Este é um sistema simples (CRUD) de Cadastro de jogos desenvolvido em Laravel, 
 ## Recursos
 
 - Cadastro, edição e exclusão de jogos.
-- Associação de jogos a plataformas.
+- Cadastro, edição e exclusão de plataformas.
+- Associação de jogos a plataforma.
+- Cadastro, edição e exclusão de categorias.
+- Associação de jogos a categoria.
 - Consulta de jogos por nome, plataforma, status de finalização e Categorias.
 
 
