@@ -23,24 +23,27 @@ Route::get('/home/consultar', [HomeController::class, 'consultar'])->name('home.
 
 // ======================================== route jogos ============================================================
 
-// Rota para exibir a lista de jogos
-Route::get('/jogos', [JogosController::class, 'index'])->name('jogos.index');
+// usando prefix
 
-// Rota para armazenar um novo jogo
-Route::post('/jogos/armazenar', [JogosController::class, 'store'])->name('jogos.store');
+Route::prefix('jogos')->group(function () {
+    // Rota para exibir a lista de jogos
+    Route::get('/', [JogosController::class, 'index'])->name('jogos.index');
 
-// Rota para exibir o formulário de edição de jogo
-Route::get('/jogos/editar/{id}', [JogosController::class, 'edit'])->name('jogos.edit');
+    // Rota para armazenar um novo jogo
+    Route::post('/armazenar', [JogosController::class, 'store'])->name('jogos.store');
 
-// Rota para atualizar os dados do jogo após edição
-Route::put('/jogos/atualizar/{id}', [JogosController::class, 'update'])->name('jogos.update');
+    // Rota para exibir o formulário de edição de jogo
+    Route::get('/editar/{id}', [JogosController::class, 'edit'])->name('jogos.edit');
 
-// Rota para exibir a página de confirmação de exclusão de jogo
-Route::get('/jogos/confirmarExclusao/{id}', [JogosController::class, 'confirmarExclusao'])->name('jogos.confirmarExclusao');
+    // Rota para atualizar os dados do jogo após edição
+    Route::put('/atualizar/{id}', [JogosController::class, 'update'])->name('jogos.update');
 
-// Rota para excluir um jogo
-Route::delete('/jogos/excluir/{id}', [JogosController::class, 'destroy'])->name('jogos.destroy');
+    // Rota para exibir a página de confirmação de exclusão de jogo
+    Route::get('/confirmarExclusao/{id}', [JogosController::class, 'confirmarExclusao'])->name('jogos.confirmarExclusao');
 
+    // Rota para excluir um jogo
+    Route::delete('/excluir/{id}', [JogosController::class, 'destroy'])->name('jogos.destroy');
+});
 
 
 // ======================================== route plataformas ============================================================
