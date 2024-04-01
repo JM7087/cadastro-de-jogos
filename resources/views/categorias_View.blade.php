@@ -57,5 +57,7 @@
 
 @endif
 
+<!-- Links de Paginação -->
+@include('componentes.links_paginacao', ['paginator' => $categorias])
 
 @endsection

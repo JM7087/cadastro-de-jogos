@@ -54,8 +54,10 @@
             @endforeach
         </tbody>
     </table>
-
+    
 @endif
 
+ <!-- Links de Paginação -->
+ @include('componentes.links_paginacao', ['paginator' => $plataformas])
 
 @endsection

@@ -21,7 +21,7 @@ class PlataformasController extends Controller
     public function index()
     {
 
-        $plataformas = Plataforma::orderBy('nome')->get();
+        $plataformas = Plataforma::orderBy('nome')->paginate(6);
 
         return view('plataformas_View', ['plataformas' => $plataformas]);
     }
