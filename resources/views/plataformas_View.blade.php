@@ -57,7 +57,9 @@
     
 @endif
 
+@if ($plataformas->total() > 6)
  <!-- Links de Paginação -->
  @include('componentes.links_paginacao', ['paginator' => $plataformas])
+@endif
 
 @endsection

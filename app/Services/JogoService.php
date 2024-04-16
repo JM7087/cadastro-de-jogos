@@ -23,7 +23,7 @@ class JogoService
             plataformas.nome as nome_plataforma'
             )
             ->orderBy('jogos.nome')
-            ->get();
+            ->paginate(6);
 
         return $jogos;
     }
@@ -76,7 +76,7 @@ class JogoService
             $jogos->where('categorias.id', $categoriaId);
         }
 
-        $result = $jogos->orderBy('jogos.nome')->get();
+        $result = $jogos->orderBy('jogos.nome')->paginate(6);
 
         return $result;
     }

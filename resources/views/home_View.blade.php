@@ -53,9 +53,9 @@
         </select>
 
         <button class="btn btn-success" type="submit">Consultar</button>
-        
+
         @if($consultar)
-          <a href="{{ route('home.index') }}" class="btn btn-secondary mx-1">Limpar</a>
+        <a href="{{ route('home.index') }}" class="btn btn-secondary mx-1">Limpar</a>
         @endif
 
     </div>
@@ -100,6 +100,11 @@
     </tbody>
 </table>
 
+@endif
+
+@if ($jogos->total() > 6)
+<!-- Links de Paginação -->
+@include('componentes.links_paginacao', ['paginator' => $jogos])
 @endif
 
 @endsection

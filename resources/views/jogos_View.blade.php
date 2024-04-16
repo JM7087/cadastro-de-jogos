@@ -16,15 +16,15 @@
             <input class="form-check-input" type="checkbox" name="jogo_finalizado" id="jogo_finalizado">
         </div> --}}
 
-       <!-- Adicionando o campo de seleção para jogo finalizado -->
-       <select class="form-select" name="jogo_finalizado" style="width: 8%;">
-        <option value="null" disabled selected hidden>Jogo Finalizado Selecionar Sim ou Não</option>
+        <!-- Adicionando o campo de seleção para jogo finalizado -->
+        <select class="form-select" name="jogo_finalizado" style="width: 8%;">
+            <option value="null" disabled selected hidden>Jogo Finalizado Selecionar Sim ou Não</option>
             <option value="1">Sim</option>
             <option value="0">Não</option>
         </select>
 
-         <!-- Adicionando o campo de seleção para as categorias -->
-         <select class="form-select" name="categoria_id" aria-label="Categoria">
+        <!-- Adicionando o campo de seleção para as categorias -->
+        <select class="form-select" name="categoria_id" aria-label="Categoria">
             <option value="null" disabled selected hidden>Selecionar uma Categoria</option>
             @foreach($categorias as $categoria)
             <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
@@ -93,6 +93,11 @@
     </tbody>
 </table>
 
+@endif
+
+@if ($jogos->total() > 6)
+<!-- Links de Paginação -->
+@include('componentes.links_paginacao', ['paginator' => $jogos])
 @endif
 
 @endsection
