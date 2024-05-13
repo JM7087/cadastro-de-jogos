@@ -13,12 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jogos', function (Blueprint $table) {
-            $table->id();
-            $table->string('nome');
-            $table->boolean('jogo_finalizado')->default(false);
-            $table->timestamps();
-        });
+        // Verifica se a tabela 'jogos' já existe antes de criar
+        if (!Schema::hasTable('jogos')) {
+            Schema::create('jogos', function (Blueprint $table) {
+                $table->id();
+                $table->string('nome');
+                $table->boolean('jogo_finalizado')->default(false);
+                $table->timestamps();
+            });
+        }
     }
 
     /**

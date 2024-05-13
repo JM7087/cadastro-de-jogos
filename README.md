@@ -177,6 +177,11 @@ Gere as tabelas do banco de dados
 php artisan migrate
 ```
 
+Rode o seeder para alimendar as tabelas do banco de dados:
+```sh
+php artisan db:seed
+```
+
 Acessar o bancco de dados
 [http://localhost:8080/]
 

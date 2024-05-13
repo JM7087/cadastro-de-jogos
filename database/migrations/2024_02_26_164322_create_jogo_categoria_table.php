@@ -13,18 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jogo_categoria', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('jogo_id');
-            $table->unsignedBigInteger('categoria_id');
-            $table->timestamps();
+        // Verifica se a tabela 'jogo_categoria' já existe antes de criar
+        if (!Schema::hasTable('jogo_categoria')) {
+            Schema::create('jogo_categoria', function (Blueprint $table) {
+                $table->id();
+                $table->unsignedBigInteger('jogo_id');
+                $table->unsignedBigInteger('categoria_id');
+                $table->timestamps();
 
-            $table->foreign('jogo_id')->references('id')->on('jogos')->onDelete('cascade');
-            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
-        });
+                $table->foreign('jogo_id')->references('id')->on('jogos')->onDelete('cascade');
+                $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
+            });
+        }
     }
 
-      /**
+    /**
      * Reverse the migrations.
      *
      * @return void
