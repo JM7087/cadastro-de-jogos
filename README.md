@@ -187,3 +187,21 @@ Acessar o bancco de dados
 
 Acesse o projeto
 [http://localhost:7087]
+
+## Contribuição
+
+Contribuições são bem-vindas! Se você encontrar algum problema ou tiver sugestões de melhoria, por favor:
+
+1. Abra uma issue descrevendo o problema/sugestão
+2. Fork o repositório
+3. Crie uma branch para sua feature
+4. Faça o commit das suas mudanças
+5. Envie um pull request
+
+## Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+
+## Créditos
+
+- Desenvolvido por [João Marcos](https://links.jm7087.com)
